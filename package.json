@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sourcegraph/sourcegraph/master/shared/src/schema/extension.schema.json",
+  "name": "sourcegraph-subscribe",
+  "title": "WIP: Sourcegraph subscribe event",
+  "description": "Checks the subscribe event for when a workspace opens",
+  "publisher": "yevbar",
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "actions": [],
+    "menus": {
+      "editor/title": [],
+      "commandPalette": []
+    },
+    "configuration": {}
+  },
+  "version": "0.0.0-DEVELOPMENT",
+  "license": "MIT",
+  "main": "dist/sourcegraph-subscribe.js",
+  "scripts": {
+    "tslint": "tslint -p tsconfig.json './src/**/*.ts'",
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "parcel build --out-file dist/sourcegraph-subscribe.js src/sourcegraph-subscribe.ts",
+    "serve": "parcel serve --no-hmr --out-file dist/sourcegraph-subscribe.js src/sourcegraph-subscribe.ts",
+    "watch:typecheck": "tsc -p tsconfig.json -w",
+    "watch:build": "tsc -p tsconfig.dist.json -w",
+    "sourcegraph:prepublish": "npm run build"
+  },
+  "browserslist": [
+    "last 1 Chrome versions",
+    "last 1 Firefox versions",
+    "last 1 Edge versions",
+    "last 1 Safari versions"
+  ],
+  "devDependencies": {
+    "@sourcegraph/tsconfig": "^3.0.0",
+    "@sourcegraph/tslint-config": "^12.3.0",
+    "parcel-bundler": "^1.11.0",
+    "sourcegraph": "^20.0.0",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  }
+}
